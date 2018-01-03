@@ -1,6 +1,5 @@
 # Integrating badges using a Chrome Web Extension
 
-
 The o2r-extender is part of the [o2r project](http://o2r.info) which aims to make reproduction of research results possbile:
 
 The o2r-extender consists of a Chrome Web Extension that allows for integration of badges on several [research websites](#Supported-research-services). Additionally, it integrates buttons for the o2r project into [data repositories](#Supported-data-repositories) and [collaboration platforms](#Supported-collaboration-platforms).
@@ -68,10 +67,13 @@ npm install -g chrome-webstore-upload-cli
 **Release process**
 
 - add a tag matching the version from `manifest.json` prepended with `v`, e.g. `v0.1.0`
+
 ```bash
 git tag v0.1.0
 ```
+
 - go to directory `extension` and put keys and IDs into environment variables:
+
 ```bash
 cd extension
 EXTENSION_ID=fhhfncpkfohlhphlcgpkbpialfhkmbil
@@ -79,15 +81,20 @@ CLIENT_ID=<secret>
 CLIENT_SECRET=<secret>
 REFRESH_TOKEN=<secret>
 ```
+
 - upload directory
-bash```
+
+```bash
 webstore upload --extension-id $EXTENSION_ID --client-id $CLIENT_ID --client-secret $CLIENT_SECRET --refresh-token $REFRESH_TOKEN
 ```
+
 - publish extension
 ```bash
 webstore publish --extension-id $EXTENSION_ID --client-id $CLIENT_ID --client-secret $CLIENT_SECRET --refresh-token $REFRESH_TOKEN
 ```
+
 - push the tag to GitHub
+
 ```bash
 git push upstream v0.1.0
 ```
